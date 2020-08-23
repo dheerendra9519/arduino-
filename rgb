@@ -1,0 +1,34 @@
+int redled = 3;
+int greenled = 5;
+int blueled = 6;
+int brightness = 255;
+void setup() {
+
+  pinMode(redled, OUTPUT);
+  
+  pinMode(greenled, OUTPUT);
+  
+  pinMode(blueled, OUTPUT);
+}
+
+
+void loop() {
+  digitalWrite(redled, HIGH);   // RED LED ON
+  digitalWrite(greenled, LOW); 
+  digitalWrite(blueled, LOW); 
+  delay(2000);                  // WAIT FOR 1 SECOND      
+  digitalWrite(redled, LOW);
+  digitalWrite(greenled, HIGH);  //GREEN LED ON
+  digitalWrite(blueled, LOW); 
+      
+  delay(2000);    
+  digitalWrite(redled, LOW);
+  digitalWrite(greenled, LOW); 
+  digitalWrite(blueled, HIGH); // BLUE LED ON
+     delay(2000);
+}
+
+
+
+
+// cteated by tech warriors
