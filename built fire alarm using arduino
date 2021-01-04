@@ -1,0 +1,25 @@
+define Flame 2
+#define alarm 8
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Dheerendra Rajput");
+  pinMode(Flame, INPUT);
+  pinMode(alarm, OUTPUT);
+
+}
+
+void loop() {
+int fire = digitalRead(Flame);
+if( fire == HIGH)
+{
+  digitalWrite(alarm,HIGH);
+  Serial.println ("Fire! Fire!");
+}
+else
+{
+  digitalWrite(alarm,LOW);
+  Serial.println("peace");
+}
+delay(200);
+}
