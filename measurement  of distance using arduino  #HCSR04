@@ -1,0 +1,52 @@
+int trigPin = 9;
+int echoPin = 8;
+float pingTime;
+float speed_of_sound = 776.5; 
+float target_distance ; 
+int buzzer = 2;
+//int led = 13;
+void setup() {
+ Serial.begin(9600); // turn on serial port
+ pinMode(trigPin, OUTPUT); // set trig pin as output pin
+ pinMode(echoPin, INPUT); // set echo pin as input pin
+ pinMode(buzzer,OUTPUT);
+}
+
+void loop() {
+  digitalWrite(trigPin, LOW); // set Trigger pin as low
+  delayMicroseconds(2000); 
+  digitalWrite(trigPin, HIGH); 
+  delayMicroseconds(10); 
+  digitalWrite(trigPin, LOW); 
+  
+   pingTime =  pulseIn(echoPin, HIGH) ; 
+   pingTime = pingTime/1000000.;
+   pingTime = pingTime/3600.;
+   target_distance = (speed_of_sound*pingTime*63360)/2; // distance in inches
+ //  Serial.print("distance of target is :");
+  
+  
+  //Serial.print(target_distance);
+  //Serial.println("INCHES.");
+  //delay(3000); // delay in MS
+
+  
+     if(target_distance<2)// water overflow set at 2 inches
+     { 
+     digitalWrite(buzzer,HIGH);
+      //digitalWrite(led,255);
+      
+      delay(1000);
+      }
+
+else
+{
+  digitalWrite(buzzer,LOW);
+  //digitalWrite(led,0);
+  delay(100);
+  }
+  
+  }
+     
+
+//dheerendra rajput
